@@ -1,17 +1,17 @@
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
 import { auth } from '../firebase.init';
-import google from '../images/social/google.png';
 import Loading from '../Shared/Loading';
 
-
-const Login = () => {
-  //firebase auth
-  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
-
+const SignUp = () => {
+ 
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+      ] = useCreateUserWithEmailAndPassword(auth);
     let signInError;
 
   if(user){
@@ -20,28 +20,51 @@ const Login = () => {
 
   const { register, handleSubmit,  formState: { errors } ,  reset } = useForm();
 
-  if (loading || gLoading) {
+  if (loading ) {
     return <Loading></Loading>;
   }
 
-  if(error || gError){
-    signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
+  if(error ){
+    signInError= <p className='text-red-500'><small>{error?.message}</small></p>
 }
 
   const onSubmit = (data) => {
     console.log(data)
-    signInWithEmailAndPassword(data.email, data.password);
+    createUserWithEmailAndPassword(data.email, data.password);
   reset()};
-
-  
-  return (
-    <div className="h-screen lg:mt-16  mb-0 flex bg-accent justify-center items-center">
-      <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+    return (
+        <div className="h-screen lg:mt-16  mb-0 flex bg-accent justify-center items-center">
+      <div class="card flex-shrink-0 w-full  max-w-sm shadow-2xl bg-base-100">
         <div class="card-body">
-          <h1 className="text-center text-2xl">Login</h1>
+          <h1 className="text-center text-2xl">SignUp</h1>
           <div class="form-control">
             
             <form onSubmit={handleSubmit(onSubmit)}>
+            <div class="form-control w-full max-w-xs">
+              <label class="label" for="name">
+                <span class="label-text">Name</span>
+              </label>
+              <input
+                type="text"
+                id='name'
+                placeholder="Your Name"
+                class="input input-bordered w-full max-w-xs"
+                {...register("name", {
+                  required: {
+                    value: true,
+                    message: "Name is Required",
+                  }
+                })}
+              />
+              <label class="label" >
+                {errors.email?.type === "required" && (
+                  <span className="label-text-alt text-red-500">
+                    {errors.name.message}
+                  </span>
+                )}
+                
+              </label>
+            </div>
             <div class="form-control w-full max-w-xs">
               <label class="label" for="email">
                 <span class="label-text">Email</span>
@@ -112,20 +135,17 @@ const Login = () => {
             <input
               class="btn btn-outline w-full max-w-xs"
               type="submit"
-              value="Login"
+              value="SignUp"
             />
           </form>
-          <p><small>New to Beriye Pori<Link className='text-primary px-2' to="/signup">Create New Account Here</Link></small></p>
-          <div class="divider">OR</div>
-          <button class="btn btn-outline" onClick={() => signInWithGoogle()}>
-            <img style={{ width: '30px' }} src={google} alt="" />
-            <span className="px-2">Google Sign In</span>
-          </button>
+          <p><small>Already have an account? <Link className='text-primary px-2' to="/signup">Login</Link></small></p>
+         
+         
         </div>
       </div>
     </div>
     </div>
-  );
+    );
 };
 
-export default Login;
+export default SignUp;

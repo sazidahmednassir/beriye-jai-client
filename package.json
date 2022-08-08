@@ -1,5 +1,5 @@
 {
-  "name": "servectg",
+  "name": "Beriye Pori",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -10,9 +10,11 @@
     "aos": "^2.3.4",
     "axios": "^0.27.2",
     "daisyui": "^2.17.0",
+    "firebase": "^9.9.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-hook-form": "^7.33.1",
+    "react-firebase-hooks": "^5.0.3",
+    "react-hook-form": "^7.34.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "theme-change": "^2.0.2",

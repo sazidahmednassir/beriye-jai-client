@@ -3,6 +3,7 @@ import Contact from "../pages/Contact";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
 import Services from "../pages/Services";
+import SignUp from "../pages/SignUp";
 
 export const publicRoute = [
   { path: "/", name: "Home", Component: Home },
@@ -10,4 +11,5 @@ export const publicRoute = [
   { path: "/services", name: "Services", Component: Services },
   { path: "/contact", name: "Contact", Component: Contact },
   { path: "/login", name: "Login", Component: Login },
+  { path: "/signup", name: "SignUp", Component: SignUp },
 ];

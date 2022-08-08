@@ -52,7 +52,8 @@ const Navbar = ({ children }) => {
               </svg>
             </label>
           )}
-          <div class='flex-1 px-2 mx-2 text-2xl'>Beriye Jai</div>
+          <div class='flex-1 px-2 mx-2 text-2xl'>
+          Beriye Pori</div>
           <div class='flex-none lg:hidden'>
             <label for='my-drawer-3' class='btn btn-square btn-ghost'>
               <svg
