@@ -2,6 +2,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AdminRoute from "./authentication/AdminRoute";
 import PrivateRoute from "./authentication/PrivateRoute";
@@ -19,6 +20,7 @@ function App() {
     <>
     
       <Navbar>
+      <ToastContainer/>
         <Routes>
           {/* <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
