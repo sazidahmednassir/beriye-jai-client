@@ -3,7 +3,7 @@ import {
   useUpdateProfile
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { auth } from '../firebase.init';
 import Loading from '../Shared/Loading';
@@ -14,6 +14,7 @@ const SignUp = () => {
 
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   let signInError;
+  const navigate = useNavigate();
 
   if (user) {
     console.log(user);
@@ -44,6 +45,7 @@ const SignUp = () => {
     await updateProfile({ displayName: data.name });
     toast('User Created');
     reset();
+    navigate('/')
   };
   return (
     <div className="h-screen lg:mt-16  mb-0 flex bg-accent justify-center items-center">

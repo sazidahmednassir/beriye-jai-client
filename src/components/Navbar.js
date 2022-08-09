@@ -1,10 +1,14 @@
+import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, useLocation } from "react-router-dom";
+import { auth } from "../firebase.init";
 import useAdmin from "../hooks/useAdmin";
 
 const Navbar = ({ children }) => {
   
   const { pathname } = useLocation();
+  const [user] = useAuthState(auth);
   console.log(pathname);
 
   const [admin] = useAdmin();
@@ -24,6 +28,11 @@ const Navbar = ({ children }) => {
     // }
     setDark(isDark);
   }, []);
+
+  const logout = () => {
+    signOut(auth);
+    localStorage.removeItem("accessToken");
+  };
 
   return (
     <div class='drawer  drawer-end' data-theme={dark ? "dark" : "light"}>
@@ -92,8 +101,8 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/services' className='rounded-lg'>
-                  Services
+                <NavLink to='/package' className='rounded-lg'>
+                  Package
                 </NavLink>
               </li>
               <li>
@@ -102,9 +111,11 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/login' className='rounded-lg'>
+               { user?  <button className="btn btn-ghost" onClick={logout}>
+            Sign Out
+          </button>:<NavLink to='/login' className='rounded-lg'>
                   Login
-                </NavLink>
+                </NavLink>}
               </li>
 
               <li class='dropdown dropdown-hover dropdown-end'>

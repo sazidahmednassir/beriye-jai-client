@@ -1,5 +1,5 @@
 
-const Services = () => {
+const Package = () => {
     return (
         <div>
             <h1>services</h1>
@@ -7,4 +7,4 @@ const Services = () => {
     );
 };
 
-export default Services;
+export default Package;

@@ -2,7 +2,7 @@ import About from "../pages/About";
 import Contact from "../pages/Contact";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login";
-import Services from "../pages/Services";
+import Services from "../pages/Package";
 import SignUp from "../pages/SignUp";
 
 export const publicRoute = [
