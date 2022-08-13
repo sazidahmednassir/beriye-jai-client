@@ -15,7 +15,7 @@
 }
 .card {
   margin: 10px;
-  background-color: #fff;
+
   border-radius: 10px;
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
   overflow: hidden;
@@ -35,12 +35,11 @@
   min-height: 250px;
 }
 
-.tag {
-  background: #cccccc;
+/* .tag {
   border-radius: 50px;
   font-size: 12px;
   margin: 0;
-  color: #fff;
+
   padding: 2px 10px;
   text-transform: uppercase;
   cursor: pointer;
@@ -72,10 +71,10 @@
 }
 .user-info h5 {
   margin: 0;
-}
-.user-info small {
+} */
+/* .user-info small {
   color: #545d7a;
-}
+} */
 
 @media only screen and (max-width: 768px) {
   .container {

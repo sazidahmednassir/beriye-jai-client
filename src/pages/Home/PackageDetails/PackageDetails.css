@@ -1,0 +1,15 @@
+.taka {
+}
+
+@media only screen and (max-width: 768px) {
+  /* .carousel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  } */
+
+  .carousel.cus-car.w-full.gap-5 {
+    display: none;
+  }
+}
