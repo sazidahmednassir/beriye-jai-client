@@ -68,7 +68,7 @@ const PackageDetails = () => {
         
       </div>
       <div class="card-body">
-    <h2 class="card-title text-2xl"><span className='text-2xl'>Duration:</span>{spack.duration}</h2>
+    <h2 class="card-title text-2xl">Duration:{spack.duration}</h2>
     <span className='card-title text-2xl'>Tour Info:</span>
     <p className='text-2xl'>{spack?.des1?.map(sp=><li className='text-xl'>{sp}</li>)}</p>
     <span className='card-title text-2xl'>Tour Includes:</span>

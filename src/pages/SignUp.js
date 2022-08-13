@@ -1,23 +1,33 @@
 import {
   useCreateUserWithEmailAndPassword,
+  useSignInWithGoogle,
   useUpdateProfile
 } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { auth } from '../firebase.init';
+import useToken from '../hooks/useToken';
+import google from '../images/social/google.png';
 import Loading from '../Shared/Loading';
 
 const SignUp = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);  
+
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   let signInError;
   const navigate = useNavigate();
 
-  if (user) {
-    console.log(user);
+  const [token]=useToken(user || gUser)
+
+  console.log(user)
+
+  if (token) {
+    console.log(user || gUser);
+    navigate('/login')
   }
 
   const {
@@ -48,7 +58,7 @@ const SignUp = () => {
     navigate('/')
   };
   return (
-    <div className="h-screen lg:mt-16  mb-0 flex bg-accent justify-center items-center">
+    <div className="lg:mt-20  mb-0 flex bg-accent justify-center items-center">
       <div class="card flex-shrink-0 w-full  max-w-sm shadow-2xl bg-base-100">
         <div class="card-body">
           <h1 className="text-center text-2xl">SignUp</h1>
@@ -160,6 +170,11 @@ const SignUp = () => {
               </small>
             </p>
           </div>
+          <div class="divider">OR</div>
+          <button class="btn btn-outline" onClick={() => signInWithGoogle()}>
+            <img style={{ width: '30px' }} src={google} alt="" />
+            <span className="px-2">Google Sign In</span>
+          </button>
         </div>
       </div>
     </div>
