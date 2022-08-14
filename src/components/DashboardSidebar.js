@@ -1,6 +1,15 @@
+import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink } from "react-router-dom";
+import { auth } from "../firebase.init";
+import useAdmin from "../hooks/useAdmin";
+
+
 
 const DashboardSidebar = ({ children }) => {
+   
+  const [user] = useAuthState(auth);
+  const [admin] = useAdmin(user);
+  console.log(admin)
   return (
     <div class='drawer drawer-mobile mt-16 bg-accent'>
       <input id='my-drawer-2' type='checkbox' class='drawer-toggle' />
@@ -15,7 +24,9 @@ const DashboardSidebar = ({ children }) => {
             <NavLink to='/dashboard/add-service'>Add Service</NavLink>
           </li>
           <li>
-            <NavLink to='/dashboard/add-admin'>Add Admin</NavLink>
+          
+           {admin && <NavLink to='/dashboard/add-admin'>Add Admin</NavLink>} 
+            
           </li>
         </ul>
       </div>

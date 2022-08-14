@@ -1,5 +1,7 @@
+import Dashboard from "../pages/Dashboard/Dashboard";
 
 export const privateRoutes = [
   
-  // { path: "/package", name: "Package", Component: Package },
+  { path: "/dashboard/add-service", name: "DashBoard", Component: Dashboard },
+ 
 ];

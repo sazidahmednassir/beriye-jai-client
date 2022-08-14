@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { NavLink, useLocation } from "react-router-dom";
 import { auth } from "../firebase.init";
-import useAdmin from "../hooks/useAdmin";
 
 const Navbar = ({ children }) => {
   
@@ -11,7 +10,8 @@ const Navbar = ({ children }) => {
   const [user] = useAuthState(auth);
   console.log(pathname);
 
-  const [admin] = useAdmin();
+  // const [admin] = useAdmin(user);
+  // console.log(admin)
   const [dark, setDark] = useState(localStorage.isDark);
   const toggleTheme = () => {
     console.log(dark);
@@ -88,13 +88,13 @@ const Navbar = ({ children }) => {
                   Home
                 </NavLink>
               </li>
-              {admin && (
+              
                 <li>
                   <NavLink to='/dashboard/add-service' className='rounded-lg'>
                     Dashboard
                   </NavLink>
                 </li>
-              )}
+              
               <li>
                 <NavLink to='/about' className='rounded-lg'>
                   About

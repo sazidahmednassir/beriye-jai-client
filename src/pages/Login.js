@@ -13,9 +13,9 @@ const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-
-    let signInError;
     const [token]=useToken(user || gUser)
+    let signInError;
+    
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
