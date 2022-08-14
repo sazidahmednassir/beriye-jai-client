@@ -31,6 +31,7 @@ const PurchasePage = () => {
       user: user?.email,
       address: event.target.address.value,
       phone: event.target.phone.value,
+      price: event.target.price.value
     };
 
     

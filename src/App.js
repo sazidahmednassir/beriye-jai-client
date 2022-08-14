@@ -8,8 +8,8 @@ import AdminRoute from "./authentication/AdminRoute";
 import PrivateRoute from "./authentication/PrivateRoute";
 import Navbar from "./components/Navbar";
 import AddAdmin from "./pages/Dashboard/AddAdmin";
-import AddService from "./pages/Dashboard/AddService";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import MyOrders from "./pages/Dashboard/MyOrders";
 import { privateRoutes } from "./routes/privateRoutes";
 import { publicRoute } from "./routes/publicRoutes";
 function App() {
@@ -22,6 +22,7 @@ function App() {
       <Navbar>
       <ToastContainer/>
         <Routes>
+  
           {/* <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
@@ -36,11 +37,27 @@ function App() {
               <Route key={index} path={path} element={<Component />} />
             ))}
           </Route>
-          <Route element={<AdminRoute />}>
+          {/* <Route element={<AdminRoute />}>
           <Route path='/dashboard' element={<Dashboard/>}>
             <Route path='add-admin' element={<AddAdmin/>} />
-            <Route path='add-service' element={<AddService />} />
-          </Route>
+            
+            <Route path='add-service' element={<AddService />}
+            
+             />
+          </Route> */}
+
+          <Route path="/dashboard" element={  <privateRoutes><Dashboard/></privateRoutes> } >
+        <Route index element={<MyOrders></MyOrders>}></Route>
+        {/* <Route path="addreview" element={<AddReview></AddReview>}></Route> */}
+        {/* <Route path="updateprofile" element={<UpdateProfile></UpdateProfile>}></Route> */}
+        <Route path="order" element={<MyOrders></MyOrders>}></Route>
+        {/* <Route path="payment/:id" element={<Payment></Payment>}></Route> */}
+        <Route path="add-admin" element={<AdminRoute><AddAdmin></AddAdmin></AdminRoute>}></Route>
+        {/* <Route path="manageorder" element={<RequireAdmin><ManageOrders></ManageOrders></RequireAdmin>}></Route>
+        <Route path="addproduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
+        <Route path="manageproduct" element={<RequireAdmin><ManageProducts></ManageProducts></RequireAdmin>}></Route> */}
+        
+      
         </Route>
         </Routes>
       </Navbar>

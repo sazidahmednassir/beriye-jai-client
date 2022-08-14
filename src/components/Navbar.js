@@ -89,11 +89,11 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               
-                <li>
-                  <NavLink to='/dashboard/add-service' className='rounded-lg'>
-                    Dashboard
-                  </NavLink>
-                </li>
+              {user && (
+        <li>
+          <NavLink to="/dashboard" >Dashboard</NavLink>
+        </li>
+      )}
               
               <li>
                 <NavLink to='/about' className='rounded-lg'>
