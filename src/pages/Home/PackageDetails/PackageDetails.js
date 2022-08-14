@@ -59,7 +59,7 @@ const PackageDetails = () => {
             <div className='flex flex-col'>
             <h1 class="text-5xl font-bold text-center">{spack.name}</h1>
           <button class="bg-transparent hover:bg-primary text-primary font-semibold hover:text-accent py-2 px-4 border border-primary hover:border-transparent rounded my-12 w-full cursor-pointer ">
-             <Link to='/' > {spack.sprice} TK</Link> 
+             <Link to={`/purchase/${spack._id}` } > {spack.sprice} TK</Link> 
             </button>
             </div>
             
