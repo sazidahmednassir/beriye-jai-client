@@ -48,6 +48,7 @@ const MyOrders = () => {
               <th>Package Name</th>
               <th>Address</th>
               <th>Price</th>
+              <th>Payment</th>
               <th>Cancel Package</th>
             </tr>
           </thead>

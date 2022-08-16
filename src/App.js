@@ -10,6 +10,7 @@ import Navbar from "./components/Navbar";
 import AddAdmin from "./pages/Dashboard/AddAdmin";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
+import Payment from "./pages/Dashboard/Payment";
 import { privateRoutes } from "./routes/privateRoutes";
 import { publicRoute } from "./routes/publicRoutes";
 function App() {
@@ -51,7 +52,7 @@ function App() {
         {/* <Route path="addreview" element={<AddReview></AddReview>}></Route> */}
         {/* <Route path="updateprofile" element={<UpdateProfile></UpdateProfile>}></Route> */}
         <Route path="order" element={<MyOrders></MyOrders>}></Route>
-        {/* <Route path="payment/:id" element={<Payment></Payment>}></Route> */}
+        <Route path="payment/:id" element={<Payment></Payment>}></Route>
         <Route path="add-admin" element={<AdminRoute><AddAdmin></AddAdmin></AdminRoute>}></Route>
         {/* <Route path="manageorder" element={<RequireAdmin><ManageOrders></ManageOrders></RequireAdmin>}></Route>
         <Route path="addproduct" element={<RequireAdmin><AddProduct></AddProduct></RequireAdmin>}></Route>
