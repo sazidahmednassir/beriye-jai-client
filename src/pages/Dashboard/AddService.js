@@ -8,6 +8,8 @@ const AddService = () => {
   const [imageURL, setImageURL] = useState("");
   const [loading, setLoading] = useState(false);
 
+  
+
   const { register, handleSubmit, reset } = useForm();
 
   const onSubmit = async (data) => {

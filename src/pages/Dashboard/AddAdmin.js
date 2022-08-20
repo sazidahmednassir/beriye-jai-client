@@ -11,7 +11,7 @@ const AddAdmin = () => {
     }).then(res=>res.json()))
 
 
-    console.log(users)
+
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -23,8 +23,8 @@ const AddAdmin = () => {
             <tr>
               <th></th>
               <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Make Admin</th>
+              <th>Delete User</th>
             </tr>
           </thead>
           <tbody>

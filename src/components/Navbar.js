@@ -37,7 +37,7 @@ const Navbar = ({ children }) => {
   return (
     <div class='drawer  drawer-end' data-theme={dark ? "dark" : "light"}>
       <input id='my-drawer-3' type='checkbox' class='drawer-toggle' />
-      <div class='drawer-content flex flex-col'>
+      <div class='drawer-content flex flex-col my-5'>
         <div class='w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20'>
           {pathname.includes("dashboard") && (
             <label
@@ -101,6 +101,11 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to='/custom-package' className='rounded-lg'>
+                  Custom Package
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to='/package' className='rounded-lg'>
                   Package
                 </NavLink>
@@ -123,7 +128,7 @@ const Navbar = ({ children }) => {
                   tabindex='0'
                   class='btn btn-primary btn-outline rounded-lg'
                 >
-                  BOOK NOW
+                  Visitable Place
                 </label>
                 <ul
                   tabindex='0'

@@ -25,12 +25,17 @@ const DashboardSidebar = ({ children }) => {
             <NavLink to='/dashboard/add-service'>Add Service</NavLink>
           </li> */}
           <li>
+            <NavLink to='/dashboard/user'>My Profile</NavLink>
+          </li>
+          <li>
             <NavLink to='/dashboard/order'>My Order</NavLink>
           </li>
+          
           
           <li>
           
            {admin && <NavLink to='/dashboard/add-admin'>Add Admin</NavLink>} 
+           {admin && <NavLink to='/dashboard/add-package'>Add Package</NavLink>} 
             
           </li>
         </ul>

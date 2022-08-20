@@ -8,9 +8,11 @@ import AdminRoute from "./authentication/AdminRoute";
 import PrivateRoute from "./authentication/PrivateRoute";
 import Navbar from "./components/Navbar";
 import AddAdmin from "./pages/Dashboard/AddAdmin";
+import AddPackage from "./pages/Dashboard/AddPackage";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import Payment from "./pages/Dashboard/Payment";
+import MyProfile from "./pages/Home/MyProfile";
 import { privateRoutes } from "./routes/privateRoutes";
 import { publicRoute } from "./routes/publicRoutes";
 function App() {
@@ -48,10 +50,13 @@ function App() {
           </Route> */}
 
           <Route path="/dashboard" element={  <privateRoutes><Dashboard/></privateRoutes> } >
-        <Route index element={<MyOrders></MyOrders>}></Route>
+        <Route index element={<MyProfile></MyProfile>}></Route>
         {/* <Route path="addreview" element={<AddReview></AddReview>}></Route> */}
         {/* <Route path="updateprofile" element={<UpdateProfile></UpdateProfile>}></Route> */}
+        <Route path="user" element={<MyProfile></MyProfile>}></Route>
         <Route path="order" element={<MyOrders></MyOrders>}></Route>
+        <Route path="add-package" element={<AdminRoute><AddPackage></AddPackage></AdminRoute>}></Route>
+        
         <Route path="payment/:id" element={<Payment></Payment>}></Route>
         <Route path="add-admin" element={<AdminRoute><AddAdmin></AddAdmin></AdminRoute>}></Route>
         {/* <Route path="manageorder" element={<RequireAdmin><ManageOrders></ManageOrders></RequireAdmin>}></Route>

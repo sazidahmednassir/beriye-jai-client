@@ -5,11 +5,12 @@ import { auth } from "../firebase.init";
 import useAdmin from "../hooks/useAdmin";
 import Loading from "../Shared/Loading";
 
-const AdminRoute = () => {
+const AdminRoute = ({children}) => {
   const location = useLocation();
   const [user, loading] = useAuthState(auth);
   
   const [admin, adminLoading] = useAdmin(user);
+  console.log(admin)
 
   if(loading || adminLoading ){
     return <Loading></Loading>
@@ -20,7 +21,8 @@ const AdminRoute = () => {
     return <Navigate to='/login' state={{ from: location }} replace />;
   }
 
-  return <Outlet />;
+  return children;
+  
 };
 
 export default AdminRoute;
