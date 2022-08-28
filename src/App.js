@@ -9,12 +9,14 @@ import PrivateRoute from "./authentication/PrivateRoute";
 import Navbar from "./components/Navbar";
 import AddAdmin from "./pages/Dashboard/AddAdmin";
 import AddPackage from "./pages/Dashboard/AddPackage";
+import AddReview from "./pages/Dashboard/AddReview";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import MyOrders from "./pages/Dashboard/MyOrders";
 import Payment from "./pages/Dashboard/Payment";
 import MyProfile from "./pages/Home/MyProfile";
 import { privateRoutes } from "./routes/privateRoutes";
 import { publicRoute } from "./routes/publicRoutes";
+import Footer from "./Shared/Footer";
 function App() {
   useEffect(() => {
     AOS.init();
@@ -54,6 +56,7 @@ function App() {
         {/* <Route path="addreview" element={<AddReview></AddReview>}></Route> */}
         {/* <Route path="updateprofile" element={<UpdateProfile></UpdateProfile>}></Route> */}
         <Route path="user" element={<MyProfile></MyProfile>}></Route>
+        <Route path="add-review" element={<AddReview></AddReview>}></Route>
         <Route path="order" element={<MyOrders></MyOrders>}></Route>
         <Route path="add-package" element={<AdminRoute><AddPackage></AddPackage></AdminRoute>}></Route>
         
@@ -66,7 +69,9 @@ function App() {
       
         </Route>
         </Routes>
+        <Footer></Footer>
       </Navbar>
+   
      
     </>
   );

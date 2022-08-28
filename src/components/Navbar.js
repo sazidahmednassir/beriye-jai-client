@@ -1,8 +1,12 @@
 import { signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { NavLink, useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { auth } from "../firebase.init";
+import Visit from "../pages/Visit";
+import Loading from "../Shared/Loading";
+import logo from "../../src/logo.jpg"
 
 const Navbar = ({ children }) => {
   
@@ -12,6 +16,8 @@ const Navbar = ({ children }) => {
 
   // const [admin] = useAdmin(user);
   // console.log(admin)
+  const [place, setPlace]= useState()
+  const [loading, setLoading]= useState(true)
   const [dark, setDark] = useState(localStorage.isDark);
   const toggleTheme = () => {
     console.log(dark);
@@ -21,17 +27,45 @@ const Navbar = ({ children }) => {
     console.log(dark);
   };
 
+  if(loading){
+    <Loading></Loading>
+  }
+
+  const {data: visit, isLoading, refetch}=useQuery('visit',  ()=>fetch('http://localhost:5000/visit' ,{
+   
+}).then(res=>res.json()))
+
+if(isLoading){
+  <Loading></Loading>
+}
+
   useEffect(() => {
     const isDark = localStorage.getItem("isDark") === "true";
     console.log(isDark);
     
     // }
     setDark(isDark);
+
+  
+    
+    const url = `http://localhost:5000/visit`;
+        console.log(url);
+        fetch(url)
+          .then((res) => res.json())
+          .then((data) => {setPlace(data)
+            setLoading(false) });
+ 
   }, []);
+
+ 
+
+  console.log(place)
+
 
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
+    
   };
 
   return (
@@ -62,7 +96,8 @@ const Navbar = ({ children }) => {
             </label>
           )}
           <div class='flex-1 px-2 mx-2 text-2xl'>
-          Beriye Pori</div>
+          <Link to='/'> <img src={logo} className="w-20 h-20 md:w-24 h-24"></img> </Link> 
+          </div>
           <div class='flex-none lg:hidden'>
             <label for='my-drawer-3' class='btn btn-square btn-ghost'>
               <svg
@@ -101,6 +136,11 @@ const Navbar = ({ children }) => {
                 </NavLink>
               </li>
               <li>
+                <NavLink to='/review' className='rounded-lg'>
+                  Review
+                </NavLink>
+              </li>
+              <li>
                 <NavLink to='/custom-package' className='rounded-lg'>
                   Custom Package
                 </NavLink>
@@ -110,11 +150,11 @@ const Navbar = ({ children }) => {
                   Package
                 </NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to='/contact' className='rounded-lg'>
                   Contact
                 </NavLink>
-              </li>
+              </li> */}
               <li>
                { user?  <button className="btn btn-ghost" onClick={logout}>
             Sign Out
@@ -134,12 +174,17 @@ const Navbar = ({ children }) => {
                   tabindex='0'
                   class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
                 >
-                  <li>
+                  {/* <li>
                     <a>Item 1</a>
                   </li>
                   <li>
                     <a>Item 2</a>
-                  </li>
+                  </li> */}
+                  {visit?.map(pl=><li>
+                    <NavLink to={`/visit/${pl._id}`} refetch={refetch} isLoading={isLoading}>{pl.name}</NavLink></li>)
+                
+                    }
+                  
                 </ul>
               </li>
               <label class='swap swap-rotate'>
@@ -216,7 +261,7 @@ const Navbar = ({ children }) => {
           >
             <div class='collapse-title text-xl font-medium'>Book Now</div>
             <div class='collapse-content'>
-              <li>
+              {/* <li>
                 <NavLink to='/contact' className='rounded-lg'>
                   Quick book
                 </NavLink>
@@ -225,7 +270,13 @@ const Navbar = ({ children }) => {
                 <NavLink to='/login' className='rounded-lg'>
                   Pre book
                 </NavLink>
-              </li>
+              </li> */}
+
+{visit?.map(pl=><li>
+                    <NavLink to={`/visit/${pl._id}`} refetch={refetch} isLoading={isLoading}>{pl.name}</NavLink></li>)
+                
+                    }
+                  
             </div>
           </div>
         </ul>

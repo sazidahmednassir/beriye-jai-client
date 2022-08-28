@@ -30,6 +30,7 @@ const AddPackage = () => {
       var img1;
       var img2;
       var img3;
+      const map=data.map
       const formData = new FormData();
       formData.append('image', image);
       
@@ -89,7 +90,8 @@ const AddPackage = () => {
       img: img,
       img1: img1,
       img2: img2,
-      img3: img3
+      img3: img3,
+      map: map
 }
 fetch("http://localhost:5000/add-package", {
   method: "POST",
@@ -234,6 +236,17 @@ fetch("http://localhost:5000/add-package", {
               </div>
               </div>
               <div class='form-control'>
+                <label htmlFor='map' class='label'>
+                  <span class='label-text'>Map Link</span>
+                </label>
+                <input
+                  type='text'
+                  id='map'
+                  class='input input-bordered'
+                  {...register("map")}
+                />
+              </div>
+              <div class='form-control'>
                 <label
                   htmlFor='image'
                 //   class={
@@ -317,6 +330,7 @@ fetch("http://localhost:5000/add-package", {
                 //   onChange={handleUploadImage}
                 />
               </div>
+              
               <div class='form-control mt-6'>
                 <button
                   type='submit'

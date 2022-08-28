@@ -15,7 +15,7 @@ const PackageDetails = () => {
       .then((data) => setSpack(data));
   }, []);
 
-  console.log(spack.des1)
+  console.log(spack?.map)
 
   return (
     <div>
@@ -68,6 +68,7 @@ const PackageDetails = () => {
         
       </div>
       <div class="card-body">
+      <iframe className='w-full' height="500"  id="gmap_canvas" src={spack?.map} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
     <h2 class="card-title text-2xl">Duration:{spack.duration}</h2>
     <span className='card-title text-2xl'>Tour Info:</span>
     <p className='text-2xl'>{spack?.des1?.map(sp=><li className='text-xl'>{sp}</li>)}</p>

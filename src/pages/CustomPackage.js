@@ -6,7 +6,7 @@ import { auth } from '../firebase.init';
 
 
 const CustomPackage = () => {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
     const [user, loading] = useAuthState(auth);
 
     const onSubmit = async (data) => {
@@ -59,20 +59,44 @@ const CustomPackage = () => {
                   id='Name'
                   class='input input-bordered'
                   value={user?.displayName}
-                  {...register("name")}
+                  {...register("name", {
+                    required: {
+                      value: true,
+                      message: "Name is Required",
+                    },
+                  })}
                 />
+                <label className="label">
+            {errors.name?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.name.message}
+              </span>
+            )}
+          </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='email' class='label'>
                   <span class='label-text'>Email</span>
                 </label>
                 <input
-                  type='text'
+                  type='email'
                   id='email'
                   class='input input-bordered'
                   value={user?.email}
-                  {...register("useremail")}
+                  {...register("useremail", {
+                    required: {
+                      value: true,
+                      message: "Email is Required",
+                    },
+                  })}
                 />
+                 <label className="label">
+            {errors.useremail?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.useremail.message}
+              </span>
+            )}
+          </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='pnumber' class='label'>
@@ -82,8 +106,20 @@ const CustomPackage = () => {
                   type='text'
                   id='pnumber'
                   class='input input-bordered'
-                  {...register("pnumber")}
+                  {...register("pnumber", {
+                    required: {
+                      value: true,
+                      message: "Phone Number is Required",
+                    },
+                  })}
                 />
+                <label className="label">
+            {errors.pnumber?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.pnumber.message}
+              </span>
+            )}
+          </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='total' class='label'>
@@ -93,8 +129,20 @@ const CustomPackage = () => {
                   type='number'
                   id='total'
                   class='input input-bordered'
-                  {...register("total")}
+                  {...register("total", {
+                    required: {
+                      value: true,
+                      message: "Total is Required",
+                    },
+                  })}
                 />
+                <label className="label">
+            {errors.total?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.total.message}
+              </span>
+            )}
+          </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='places' class='label'>
@@ -104,8 +152,20 @@ const CustomPackage = () => {
                   type='text'
                   id='places'
                   class='input input-bordered'
-                  {...register("places")}
+                  {...register("places", {
+                    required: {
+                      value: true,
+                      message: "Place is Required",
+                    },
+                  })}
                 />
+                <label className="label">
+            {errors.places?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.places.message}
+              </span>
+            )}
+            </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='days' class='label'>
@@ -115,8 +175,20 @@ const CustomPackage = () => {
                   type='number'
                   id='days'
                   class='input input-bordered'
-                  {...register("days")}
+                  {...register("days", {
+                    required: {
+                      value: true,
+                      message: "Days is Required",
+                    },
+                  })}
                 />
+                 <label className="label">
+            {errors.days?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.days.message}
+              </span>
+            )}
+            </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='point' class='label'>
@@ -126,8 +198,20 @@ const CustomPackage = () => {
                   type="text"
                   id='point'
                   class='input input-bordered'
-                  {...register("point")}
+                  {...register("point", {
+                    required: {
+                      value: true,
+                      message: "Point is Required",
+                    },
+                  })}
                 />
+                 <label className="label">
+            {errors.point?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.point.message}
+              </span>
+            )}
+            </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='date' class='label'>
@@ -137,8 +221,20 @@ const CustomPackage = () => {
                   type="date"
                   id='date'
                   class='input input-bordered'
-                  {...register("date")}
+                  {...register("date", {
+                    required: {
+                      value: true,
+                      message: "Date is Required",
+                    },
+                  })}
                 />
+                <label className="label">
+            {errors.date?.type === "required" && (
+              <span className="label-text-alt text-red-500">
+                {errors.date.message}
+              </span>
+            )}
+            </label>
               </div>
               <div class='form-control'>
                 <label htmlFor='food' class='label'>

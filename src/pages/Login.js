@@ -49,7 +49,7 @@ const Login = () => {
 
   
   return (
-    <div className="h-screen lg:mt-16  mb-0 flex bg-accent justify-center items-center">
+    <div className="h-full  lg:mt-16  mb-0 flex bg-accent justify-center items-center">
       <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
         <div class="card-body">
           <h1 className="text-center text-2xl">Login</h1>
@@ -124,12 +124,13 @@ const Login = () => {
             </div>
             {signInError}
             <input
-              class="btn btn-outline w-full max-w-xs"
+              class="btn btn-outline w-full max-w-xs mb-3"
               type="submit"
               value="Login"
             />
           </form>
-          <p><small>New to Beriye Pori<Link className='text-primary px-2' to="/signup">Create New Account Here</Link></small></p>
+          <small>New to Beriye Pori<Link className='text-primary px-2 py-5' to="/signup">Create New Account Here</Link></small>
+          <small> <Link className='text-primary px-2 py-5' to="/reset">Reset Password</Link></small>
           <div class="divider">OR</div>
           <button class="btn btn-outline" onClick={() => signInWithGoogle()}>
             <img style={{ width: '30px' }} src={google} alt="" />
