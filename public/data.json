@@ -1,161 +1,46 @@
 [
   {
-    "name": "Bandarban  Package",
-    "nprice": "5000",
-    "sprice": "12000",
-    "stand": "Popular",
-    "duration": "4 Nights 3 Days (2 Nights stay at Standard / Deluxe Hotel Bandarban)",
-    "des1": [
-      "Leave Dhaka by reserved car/coach for Bandarban.",
-      "Hotel check in and refresh. After lunch, short sightseeing of Bandarban. Evening.. Back to hotel. Overnight at Bandarban.",
-      "Start our journey to Nilgiri, This day we also visit Chimbuk and Shoilopropat. Back to the hotel. Overnight at Bandarban.",
-      "This day we visit Sangu River, Swarna Mandir, Chakma Rajbari, Meghla Garden. At evening, leave Bandarban for Dhaka."
-    ],
-    "des2": [
-      "Start our journey to Nilgiri, This day we also visit Chimbuk and Shoilopropat. Back to the hotel. Overnight at Bandarban.",
-      "This day we visit Sangu River, Swarna Mandir, Chakma Rajbari, Meghla Garden. At evening, leave Bandarban for Dhaka."
-    ],
-    "end": "We need minimum 4 pax to execute this tour program.",
-    "includes": [
-      "All Standard / Deluxe Accommodation on Twin Sharing basis as per itinerary",
-      "AC / non ac Transport / Jeep / Local Transport",
-      "All sightseeing, toll, tax and entry fees as per mentioned itinerary",
-      "Experienced guide"
-    ],
-    "excludes": [
-      "Food & Soft Drinks (let us know if you wish to include this)",
-      "Items of personal nature and items not mentioned above."
-    ],
-    "gsz": "1-12 people",
-    "dest": "Bandarban ",
-    "arri": "Bandarban ",
-    "meal": "All meals",
-    "acc": "Standard hotels",
-    "meta": "Bandarban is a district in South-Eastern Bangladesh, and a part of the Chittagong Division. It is one of the three hill districts of Bangladesh and a part ...",
-    "img": "https://i.ibb.co/KDV4Fq6/download-1.jpg",
-    "img1": "https://i.ibb.co/YD11gpx/download.jpg",
-    "img2": "https://i.ibb.co/CM1KRd8/images-4.jpg",
-    "img3": "https://i.ibb.co/GRGt6td/images.jpg"
+    "name": "পতেঙ্গা সমুদ্র সৈকত, CTG"
+  },
+  {
+    "name": "চন্দ্রনাথ পাহাড় ও মন্দির , CTG"
+  },
+  {
+    "name": "সীতাকুণ্ড ইকো পার্ক, CTG"
+  },
+  {
+    "name": "মহাস্থানগড়, RU"
+  },
+  {
+    "name": "পরশুরামের প্রাসাদ, RU"
+  },
+  {
+    "name": "রাণী ভাবনীর বাপের বাড়ি, RU"
   },
 
   {
-    "name": "Cox’Bazar Package",
-    "nprice": "15000",
-    "sprice": "32000",
-    "stand": "Popular",
-    "duration": "4 Nights 3 Days (2 Nights stay at Standard / Deluxe Hotel Cox’Bazar)",
-    "des1": [
-      "Leave Dhaka for Cox's bazaar by A/C passenger Bus or Tourist Coach, evening bus around 10:00 pm, arrive cox's bazar morning check in hotel.",
-      "After breakfast you are free to move in the beach, then Visit Buddhist Temple, and Around 11.00 am we visit inani beach and Himchari by reserved AC bus. come back Hotel for Lunch, after Lunch take 01.00 hour rest then Visit Burmese local area, in Evening Visit beach for enjoy the sun set, back to hotel, Have Dinner, overnight stay at Cox's bazaar.",
-      "This morning early you can enjoy the beach, Visit Fish market, whole day expend the at cox's bazar. Over night.",
-      "After breakfast leave Cox's bazar for Dhaqka, then on the way have lunch high way restaurant, arrive Dhaka Drop your convenient Place."
-    ],
-    "des2": [
-      "This morning early you can enjoy the beach, Visit Fish market, whole day expend the at cox's bazar. Over night.",
-      "After breakfast leave Cox's bazar for Dhaqka, then on the way have lunch high way restaurant, arrive Dhaka Drop your convenient Place."
-    ],
-    "end": "We need minimum 4 pax to execute this tour program.",
-    "includes": [
-      "Dhaka – Cox’Bazar – Dhaka bus tickets.",
-      "1-night accommodation on a resort in Cox’Bazar.",
-      "Cox’Bazar beach– Resort transfer (4 times) by van (Relax & Luxury Package only).",
-      "1 Breakfast + 2 lunches + 1 dinner at Saint Martin Island",
-      "A local guide on Cox’Bazar."
-    ],
-    "excludes": [
-      "No accompanying guide from Dhaka.",
-      "Any food or drinks other than mentioned.",
-      "Any bicycle or motorbike ride",
-      "Any personal item.",
-      "Any personal item.",
-      "Any tips."
-    ],
-    "gsz": "1-8 people",
-    "dest": "Cox’Bazar ",
-    "arri": "Cox’Bazar",
-    "meal": "All meals",
-    "acc": "Standard hotels",
-    "meta": "Cox's Bazar is a city, fishing port, tourism centre, and district headquarters in south eastern Bangladesh. It is located 150 km (93 mi) south of the city ...",
-    "img": "https://i.ibb.co/sqCNMv8/images-1.jpg",
-    "img1": "https://i.ibb.co/Pwj3st0/images-3.jpg",
-    "img2": "https://i.ibb.co/pn6ZvQB/images-2.jpg",
-    "img3": "https://i.ibb.co/g3f5ybq/images.jpg"
+    "name": "মানকালীর কুন্ড, KH"
   },
   {
-    "name": "Sajek & Khagrachari Package",
-    "nprice": "15000",
-    "sprice": "37000",
-    "stand": "Popular",
-    "duration": "3 Nights 3 Days (2 Nights stay at Standard / Deluxe Hotel Sajek & Khagrachari)",
-    "des1": [
-      "Rate including No AC Bus Ticket, If needed AC Bus Ticket Add Extra 800 BDT or 10 USD Per Person",
-      "Accommodation System 4 Person In one Room, Like 06 Person Group we Provided 1 Quad Bed Room & 1 Double Bed Room. For 10 Person Group we Provided 2 Quad Bed Room & 1 Double Bed Room. For 12 Person Group we Provided 3 Quad Bed Room."
-    ],
-    "des2": [""],
-    "end": "We need minimum 4 pax to execute this tour program.",
-    "includes": [
-      "Bus Ticket Dhaka to Khagrachari to Dhaka",
-      "Khagrachari Hotel for 3 Hours",
-      "1 Night Sajek Hotel",
-      "2 Breakfast, 2 Lunch & 1 Dinner",
-      "All Transportation During Tour By Jeep",
-      "Service Charge and Fuel Cost",
-      "Entry Fees of Sightseeing"
-    ],
-    "excludes": ["Driver Tips", "Others Meal", "Others Personal Expenses"],
-    "gsz": "1-10 people",
-    "dest": "Sajek & Khagrachari ",
-    "arri": "Sajek & Khagrachari",
-    "meal": "All meals",
-    "acc": "Standard hotels",
-    "meta": "Sajek Valley is an emerging tourist spot in Bangladesh situated among the hills of Kasalong range of mountains  in Sajek union, Baghaichhari ...",
-    "img": "https://i.ibb.co/LZkYV7R/images-1.jpg",
-    "img1": "https://i.ibb.co/Kr6hTR8/images.jpg",
-    "img2": "https://i.ibb.co/YbNmGNv/download.jpg",
-    "img3": "https://i.ibb.co/gRTPDBK/download-1.jpg"
+    "name": "ভাসু বিহার, KH"
   },
   {
-    "name": "Saint Martin Package",
-    "nprice": "25000",
-    "sprice": "67000",
-    "stand": "Popular",
-    "duration": "5 Nights 5 Days (2 Nights stay at Standard /Deluxe Hotel Saint Martin )",
-    "des1": [
-      "A scenic journey through river Naf from Teknaf to Saint Martin Island, overlooking the beautiful hills of Myanmar and accompanied by the seagulls.",
-      "Ride on a cruise ship through the Bay of Bengal.",
-      "Enjoy the beautiful sea beaches of Saint Martin Island",
-      "Stay on a sea-side Eco Resort at Saint Martin Island, Visit Chhera Dwip, a beautiful coral island adjacent to Saint Martin."
-    ],
-    "des2": [
-      "Enjoy the beautiful sea beaches of Saint Martin Island",
-      "Stay on a sea-side Eco Resort at Saint Martin Island, Visit Chhera Dwip, a beautiful coral island adjacent to Saint Martin."
-    ],
-    "end": "We need minimum 4 pax to execute this tour program.",
-    "includes": [
-      "Dhaka – Teknaf – Dhaka bus tickets",
-      "Teknaf – Saint Martin Island – Teknaf ship tickets.",
-      "1-night accommodation on a resort in Saint Martin Island.",
-      "Saint Marin Jetty – Resort transfer (4 times) by van (Relax & Luxury Package only).",
-      "Saint Martin – Chhera Dwip – Saint Martin transfer by boat.",
-      "1 Breakfast + 2 lunches + 1 dinner at Saint Martin Island",
-      "A local guide on Saint Martin Island."
-    ],
-    "excludes": [
-      "No accompanying guide from Dhaka.",
-      "Any food or drinks other than mentioned.",
-      "Any bicycle or motorbike ride",
-      "Any personal item.",
-      "Any tips."
-    ],
-    "gsz": "1-15 people",
-    "dest": "Saint Martin ",
-    "arri": "Saint Martin",
-    "meal": "All meals",
-    "acc": "Standard hotels",
-    "meta": "Saint Martin is part of the Leeward Islands in the Caribbean Sea. It comprises 2 separate countries, divided between its northern French side...",
-    "img": "https://i.ibb.co/m0GKkh9/images-1.jpg",
-    "img1": "https://i.ibb.co/fXBPHNj/images.jpg",
-    "img2": "https://i.ibb.co/3T4sCLp/images-2.jpg",
-    "img3": "https://i.ibb.co/8sRPqLW/download.jpg"
+    "name": "মিয়াবিবি জামে মসজিদ, BA"
+  },
+  {
+    "name": "অক্সফোর্ড মিশন, BA"
+  },
+
+  {
+    "name": "গুটিয়া মসজিদ, BA"
+  },
+  {
+    "name": "বাংলাদেশ টেলিভিশন ভবন, DH"
+  },
+  {
+    "name": "বিনত বিবির মসজিদ, DH"
+  },
+  {
+    "name": "বাংলাদেশ জাতীয় জাদুঘর, DH"
   }
 ]

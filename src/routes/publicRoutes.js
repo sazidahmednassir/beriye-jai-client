@@ -1,8 +1,10 @@
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import Corporate from "../pages/Home/Corporate/Corporate";
 import Home from "../pages/Home/Home";
 import PackageDetails from "../pages/Home/PackageDetails/PackageDetails";
 import Review from "../pages/Home/Review/Review";
+import Study from "../pages/Home/Study/Study";
 import Login from "../pages/Login";
 import { default as Package, default as Services } from "../pages/Package";
 import SignUp from "../pages/SignUp";
@@ -23,6 +25,8 @@ export const publicRoute = [
   {path: "/visit/:id", name: "Visit", Component: Visit },
   {path: "/reset", name: "ResetPassword", Component: ResetPassword },
   {path: "/review", name: "Review", Component: Review },
+  {path: "/study", name: "Study", Component: Study },
+  {path: "/corpor", name: "Corporate", Component: Corporate }
   
 
 

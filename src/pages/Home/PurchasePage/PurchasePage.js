@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import { auth } from '../../../firebase.init';
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
+import { auth } from "../../../firebase.init";
 
 const PurchasePage = () => {
   const { id } = useParams();
@@ -31,51 +31,49 @@ const PurchasePage = () => {
       user: user?.email,
       address: event.target.address.value,
       phone: event.target.phone.value,
-      price: event.target.price.value
+      price: event.target.price.value,
     };
 
-    
-
-
-    console.log(order)
+    console.log(order);
     console.log(event.target.address.value);
-    if (event.target.address.value == '' && event.target.phone.value == '') {
-      return toast('Enter Your Address & Phone Number');
+    if (event.target.address.value == "" && event.target.phone.value == "") {
+      return toast("Enter Your Address & Phone Number");
     }
 
-    if (event.target.address.value == '') {
-      return toast('Enter Your Address');
+    if (event.target.address.value == "") {
+      return toast("Enter Your Address");
     }
 
-    if (event.target.phone.value == '') {
-      return toast('Enter Your Phone Number');
+    if (event.target.phone.value == "") {
+      return toast("Enter Your Phone Number");
     }
-    event.target.address.value='';
-    event.target.phone.value= '';
+    event.target.address.value = "";
+    event.target.phone.value = "";
 
     fetch("http://localhost:5000/order", {
-        method: 'POST',
-        headers: {
-          'content-type': 'application/json',
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
-        body: JSON.stringify( order),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+      body: JSON.stringify(order),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
         //   setControl(!control);
-          toast('Order taken Suceesfully, Pleaqse Pay the bill in Myorders');
-        });
+        toast("Order taken Suceesfully, Pleaqse Pay the bill in Myorders");
+      });
   };
   return (
-    <div className="my-20">
+    <div className="my-20 mt-24">
       <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse">
           <div class="text-center lg:text-left">
             <h1 class="text-5xl font-bold">Book {product.name} now!</h1>
             <p class="py-6">
-              After Giving information here, Please Pay the <span className='font-bold text-xl'>{product.sprice}</span>
+              After Giving information here, Please Pay the{" "}
+              <span className="font-bold text-xl">{product.sprice}</span>
               (Taka) in MyOrder Navbar Using Dashboard Section
             </p>
           </div>

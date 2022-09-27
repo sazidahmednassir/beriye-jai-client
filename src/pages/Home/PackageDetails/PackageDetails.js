@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
-import './PackageDetails.css';
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import "./PackageDetails.css";
 
 const PackageDetails = () => {
   const { id } = useParams();
-//   console.log(id);
+  //   console.log(id);
   const [spack, setSpack] = useState({});
 
   useEffect(() => {
@@ -15,13 +15,13 @@ const PackageDetails = () => {
       .then((data) => setSpack(data));
   }, []);
 
-  console.log(spack?.map)
+  console.log(spack?.map);
 
   return (
     <div>
       <div class="hero min-h-screen bg-base-200">
         <div class="hero-content flex-col lg:flex-row-reverse">
-            {/* for destop */}
+          {/* for destop */}
           <div class="carousel cus-car w-full gap-5">
             <div id="item1" class="carousel-item w-50">
               <img src={spack.img1} class="w-50" />
@@ -33,7 +33,7 @@ const PackageDetails = () => {
               <img src={spack.img3} class="w-50" />
             </div>
           </div>
-        {/* for mobile */}
+          {/* for mobile */}
           <div class="carousel w-full lg:hidden">
             <div id="items1" class="carousel-item w-full">
               <img src={spack.img1} class="w-full" />
@@ -56,30 +56,49 @@ const PackageDetails = () => {
               3
             </a>
           </div>
-            <div className='flex flex-col'>
+          <div className="flex flex-col">
             <h1 class="text-5xl font-bold text-center">{spack.name}</h1>
-          <button class="bg-transparent hover:bg-primary text-primary font-semibold hover:text-accent py-2 px-4 border border-primary hover:border-transparent rounded my-12 w-full cursor-pointer ">
-             <Link to={`/purchase/${spack._id}` } > {spack.sprice} TK</Link> 
+            <button class="bg-transparent hover:bg-primary text-primary font-semibold hover:text-accent py-2 px-4 border border-primary hover:border-transparent rounded my-12 w-full cursor-pointer ">
+              <Link to={`/purchase/${spack._id}`}> {spack.sprice} TK</Link>
             </button>
-            </div>
-            
-         
+          </div>
         </div>
-        
       </div>
       <div class="card-body">
-      <iframe className='w-full' height="500"  id="gmap_canvas" src={spack?.map} frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
-    <h2 class="card-title text-2xl">Duration:{spack.duration}</h2>
-    <span className='card-title text-2xl'>Tour Info:</span>
-    <p className='text-2xl'>{spack?.des1?.map(sp=><li className='text-xl'>{sp}</li>)}</p>
-    <span className='card-title text-2xl'>Tour Includes:</span>
-    <p className='text-2xl'>{spack?.includes?.map(incl=><li className='text-xl'>{incl}</li>)}</p>
-    <span className='card-title text-2xl'>Tour Excludes:</span>
-    <p className='text-2xl'>{spack?.excludes?.map(excl=><li className='text-xl'>{excl}</li>)}</p>
-    <span className='card-title text-2xl'>Tour End:</span>
-    <p className='text-2xl'><span className='text-xl'>{spack.end}</span></p>
-    
-    </div>
+        <iframe
+          className="w-full"
+          height="500"
+          id="gmap_canvas"
+          src={spack?.map}
+          frameborder="0"
+          scrolling="no"
+          marginheight="0"
+          marginwidth="0"
+        ></iframe>
+        <h2 class="card-title text-2xl">Duration: {spack?.duration}</h2>
+        <span className="card-title text-2xl">Tour Info:</span>
+        <p className="text-2xl">
+          {spack?.des1?.map((sp) => (
+            <li className="text-xl">{sp}</li>
+          ))}
+        </p>
+        <span className="card-title text-2xl">Tour Includes:</span>
+        <p className="text-2xl">
+          {spack?.includes?.map((incl) => (
+            <li className="text-xl">{incl}</li>
+          ))}
+        </p>
+        <span className="card-title text-2xl">Tour Excludes:</span>
+        <p className="text-2xl">
+          {spack?.excludes?.map((excl) => (
+            <li className="text-xl">{excl}</li>
+          ))}
+        </p>
+        <span className="card-title text-2xl">Tour End:</span>
+        <p className="text-2xl">
+          <span className="text-xl">{spack.end}</span>
+        </p>
+      </div>
     </div>
   );
 };

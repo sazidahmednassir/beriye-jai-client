@@ -6,18 +6,19 @@ import { Link, NavLink, useLocation } from "react-router-dom";
 import { auth } from "../firebase.init";
 import Visit from "../pages/Visit";
 import Loading from "../Shared/Loading";
-import logo from "../../src/logo.jpg"
+import logo from "../../src/logo.jpg";
 
 const Navbar = ({ children }) => {
-  
   const { pathname } = useLocation();
   const [user] = useAuthState(auth);
   console.log(pathname);
 
   // const [admin] = useAdmin(user);
   // console.log(admin)
-  const [place, setPlace]= useState()
-  const [loading, setLoading]= useState(true)
+  const [place, setPlace] = useState();
+
+  //dark theme
+  const [loading, setLoading] = useState(true);
   const [dark, setDark] = useState(localStorage.isDark);
   const toggleTheme = () => {
     console.log(dark);
@@ -27,126 +28,128 @@ const Navbar = ({ children }) => {
     console.log(dark);
   };
 
-  if(loading){
-    <Loading></Loading>
+  if (loading) {
+    <Loading></Loading>;
   }
 
-  const {data: visit, isLoading, refetch}=useQuery('visit',  ()=>fetch('http://localhost:5000/visit' ,{
-   
-}).then(res=>res.json()))
+  const {
+    data: visit,
+    isLoading,
+    refetch,
+  } = useQuery("visit", () =>
+    fetch("http://localhost:5000/visit", {}).then((res) => res.json())
+  );
 
-if(isLoading){
-  <Loading></Loading>
-}
+  if (isLoading) {
+    <Loading></Loading>;
+  }
 
   useEffect(() => {
     const isDark = localStorage.getItem("isDark") === "true";
     console.log(isDark);
-    
+
     // }
     setDark(isDark);
 
-  
-    
     const url = `http://localhost:5000/visit`;
-        console.log(url);
-        fetch(url)
-          .then((res) => res.json())
-          .then((data) => {setPlace(data)
-            setLoading(false) });
- 
+    console.log(url);
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        setPlace(data);
+        setLoading(false);
+      });
   }, []);
 
- 
-
-  console.log(place)
-
+  console.log(place);
 
   const logout = () => {
     signOut(auth);
     localStorage.removeItem("accessToken");
-    
   };
 
   return (
-    <div class='drawer  drawer-end' data-theme={dark ? "dark" : "light"}>
-      <input id='my-drawer-3' type='checkbox' class='drawer-toggle' />
-      <div class='drawer-content flex flex-col my-5'>
-        <div class='w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20'>
+    <div class="drawer  drawer-end" data-theme={dark ? "dark" : "light"}>
+      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content flex flex-col my-5">
+        <div class="w-full navbar bg-base-100 fixed top-0 z-50 lg:px-20">
           {pathname.includes("dashboard") && (
             <label
-              tabindex='0'
-              for='my-drawer-2'
-              class='btn btn-ghost lg:hidden '
+              tabindex="0"
+              for="my-drawer-2"
+              class="btn btn-ghost lg:hidden "
             >
               <svg
-                xmlns='http://www.w3.org/2000/svg'
-                class='h-5 w-5'
-                fill='none'
-                viewBox='0 0 24 24'
-                stroke='currentColor'
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
               >
                 <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M4 6h16M4 12h16M4 18h7'
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h7"
                 />
               </svg>
             </label>
           )}
-          <div class='flex-1 px-2 mx-2 text-2xl'>
-          <Link to='/'> <img src={logo} className="w-20 h-20 md:w-24 h-24"></img> </Link> 
+          <div class="flex-1 px-2 mx-2 text-2xl">
+            <Link to="/">
+              {" "}
+              <img src={logo} className="w-20 h-20 md:w-24 h-24"></img>{" "}
+            </Link>
           </div>
-          <div class='flex-none lg:hidden'>
-            <label for='my-drawer-3' class='btn btn-square btn-ghost'>
+          <div class="flex-none lg:hidden">
+            <label for="my-drawer-3" class="btn btn-square btn-ghost">
               <svg
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 24 24'
-                class='inline-block w-6 h-6 stroke-current'
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                class="inline-block w-6 h-6 stroke-current"
               >
                 <path
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M4 6h16M4 12h16M4 18h16'
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
                 ></path>
               </svg>
             </label>
           </div>
 
-          <div class='flex-none hidden lg:block'>
-            <ul class='menu menu-horizontal gap-x-2'>
+          <div class="flex-none hidden lg:block">
+            <ul class="menu menu-horizontal gap-x-2">
               <li>
-                <NavLink to='/' className='rounded-lg'>
+                <NavLink to="/" className="rounded-lg">
                   Home
                 </NavLink>
               </li>
-              
+
               {user && (
-        <li>
-          <NavLink to="/dashboard" >Dashboard</NavLink>
-        </li>
-      )}
-              
+                <li>
+                  <NavLink to="/dashboard">Dashboard</NavLink>
+                </li>
+              )}
+
               <li>
-                <NavLink to='/about' className='rounded-lg'>
+                <NavLink to="/about" className="rounded-lg">
                   About
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/review' className='rounded-lg'>
+                <NavLink to="/review" className="rounded-lg">
                   Review
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/custom-package' className='rounded-lg'>
+                <NavLink to="/custom-package" className="rounded-lg">
                   Custom Package
                 </NavLink>
               </li>
               <li>
-                <NavLink to='/package' className='rounded-lg'>
+                <NavLink to="/package" className="rounded-lg">
                   Package
                 </NavLink>
               </li>
@@ -156,23 +159,27 @@ if(isLoading){
                 </NavLink>
               </li> */}
               <li>
-               { user?  <button className="btn btn-ghost" onClick={logout}>
-            Sign Out
-          </button>:<NavLink to='/login' className='rounded-lg'>
-                  Login
-                </NavLink>}
+                {user ? (
+                  <button className="btn btn-ghost" onClick={logout}>
+                    Sign Out
+                  </button>
+                ) : (
+                  <NavLink to="/login" className="rounded-lg">
+                    Login
+                  </NavLink>
+                )}
               </li>
 
-              <li class='dropdown dropdown-hover dropdown-end'>
+              <li class="dropdown dropdown-hover dropdown-end">
                 <label
-                  tabindex='0'
-                  class='btn btn-primary btn-outline rounded-lg'
+                  tabindex="0"
+                  class="btn btn-primary btn-outline rounded-lg"
                 >
                   Visitable Place
                 </label>
                 <ul
-                  tabindex='0'
-                  class='dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52'
+                  tabindex="0"
+                  class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52"
                 >
                   {/* <li>
                     <a>Item 1</a>
@@ -180,15 +187,21 @@ if(isLoading){
                   <li>
                     <a>Item 2</a>
                   </li> */}
-                  {visit?.map(pl=><li>
-                    <NavLink to={`/visit/${pl._id}`} refetch={refetch} isLoading={isLoading}>{pl.name}</NavLink></li>)
-                
-                    }
-                  
+                  {visit?.map((pl) => (
+                    <li>
+                      <NavLink
+                        to={`/visit/${pl._id}`}
+                        refetch={refetch}
+                        isLoading={isLoading}
+                      >
+                        {pl.name}
+                      </NavLink>
+                    </li>
+                  ))}
                 </ul>
               </li>
-              <label class='swap swap-rotate'>
-                <input type='checkbox'  onClick={toggleTheme} />
+              <label class="swap swap-rotate">
+                <input type="checkbox" onClick={toggleTheme} />
 
                 {dark ? (
                   <svg
@@ -227,40 +240,40 @@ if(isLoading){
         </div>
         {children}
       </div>
-      <div class='drawer-side'>
-        <label for='my-drawer-3' class='drawer-overlay'></label>
-        <ul class='menu p-4 overflow-y-auto w-80 bg-base-100'>
+      <div class="drawer-side">
+        <label for="my-drawer-3" class="drawer-overlay"></label>
+        <ul class="menu p-4 overflow-y-auto w-80 bg-base-100">
           <li>
-            <NavLink to='/' className='rounded-lg'>
+            <NavLink to="/" className="rounded-lg">
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to='/about' className='rounded-lg'>
+            <NavLink to="/about" className="rounded-lg">
               About
             </NavLink>
           </li>
           <li>
-            <NavLink to='/services' className='rounded-lg'>
+            <NavLink to="/services" className="rounded-lg">
               Services
             </NavLink>
           </li>
           <li>
-            <NavLink to='/contact' className='rounded-lg'>
+            <NavLink to="/contact" className="rounded-lg">
               Contact
             </NavLink>
           </li>
           <li>
-            <NavLink to='/login' className='rounded-lg'>
+            <NavLink to="/login" className="rounded-lg">
               Login
             </NavLink>
           </li>
           <div
-            tabindex='0'
-            class='collapse collapse-arrow border border-base-300 bg-base-100 rounded-box'
+            tabindex="0"
+            class="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box"
           >
-            <div class='collapse-title text-xl font-medium'>Book Now</div>
-            <div class='collapse-content'>
+            <div class="collapse-title text-xl font-medium">Book Now</div>
+            <div class="collapse-content">
               {/* <li>
                 <NavLink to='/contact' className='rounded-lg'>
                   Quick book
@@ -272,11 +285,17 @@ if(isLoading){
                 </NavLink>
               </li> */}
 
-{visit?.map(pl=><li>
-                    <NavLink to={`/visit/${pl._id}`} refetch={refetch} isLoading={isLoading}>{pl.name}</NavLink></li>)
-                
-                    }
-                  
+              {visit?.map((pl) => (
+                <li>
+                  <NavLink
+                    to={`/visit/${pl._id}`}
+                    refetch={refetch}
+                    isLoading={isLoading}
+                  >
+                    {pl.name}
+                  </NavLink>
+                </li>
+              ))}
             </div>
           </div>
         </ul>
